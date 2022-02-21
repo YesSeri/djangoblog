@@ -14,9 +14,11 @@
               href="{% static './css/style.css' %}">
     </head>
     <body>
-        {% comment %} <span style="width:100%; display: flex; justify-content: space-around; flex-wrap:wrap;"> {% endcomment %}
+		<header class="title">
+			<h1>Hank Blog</h1>
+		</header>
         <nav>
-            <a class="nav-item {% if request.path == '/' %} active{% endif %}"
+            <a class="nav-item {% if request.path == '/' or 'posts' in request.path %} active{% endif %}"
                href="{% url 'posts' %}">Posts</a>
             <a class="nav-item {% if request.path == '/topics' %} active{% endif %}"
                href="{% url 'topics' %}">Topics</a>
@@ -24,7 +26,6 @@
                href="{% url 'contact' %}">Contact</a>
         </nav>
         {% comment %} </span> {% endcomment %}
-        <h1>Hank Blog</h1>
         {% block content %}{% endblock %}
         {% block pagination %}
             {% if is_paginated %}

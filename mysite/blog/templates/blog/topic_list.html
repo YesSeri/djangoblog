@@ -1,9 +1,8 @@
 {% extends "base_generic.html" %}
 {% block content %}
     {% for topic in object_list %}
-        <a id="{{ topic.name|lower }}">
-            <h2>{{ topic.name }}</h2>
-        </a>
+        <a id="{{ topic.name|lower }}"></a>
+        <h2>{{ topic.name }}</h2>
         {% for post in topic.post_set.all %}
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><span>{{ post.created_date|date }}</span>
         {% endfor %}
