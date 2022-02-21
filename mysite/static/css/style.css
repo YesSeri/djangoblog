@@ -11,3 +11,12 @@
 .nav-item.active {
 	color: var(--accent);
 }
+
+.pagination {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.pagination>* {
+	padding: 0 5px;
+}

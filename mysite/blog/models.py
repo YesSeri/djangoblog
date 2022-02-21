@@ -25,7 +25,7 @@ class Topic(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
-    created_date = models.DateTimeField(default=now, editable=False)
+    created_date = models.DateTimeField(default=now, editable=True)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.PROTECT,

@@ -8,7 +8,7 @@ from .models import Post, Topic
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'id')
-    fields = ('title', 'content', 'author', 'topic')
+    fields = ('title', 'content', 'author', 'topic', 'created_date')
 
 
 @admin.register(Topic)
