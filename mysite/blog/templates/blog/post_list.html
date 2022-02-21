@@ -4,7 +4,13 @@
     {% for post in object_list %}
         <div>
             <h2>{{ post.title }}</h2>
-            {% for topic in post.topic.all %}<li>{{ topic.name }}</li>{% endfor %}
+            <ul>
+                {% for topic in post.topic.all %}
+                    <li>
+                        <a href="{% url 'topics' %}#{{ topic.name|lower }}">{{ topic.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
             {{ post.content | markdown | safe | truncatewords:50  }}
             <a href="{{ post.get_absolute_url }}">Read more...</a>
         </div>
