@@ -68,7 +68,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Time things
 TIME_ZONE = 'Europe/Copenhagen'
+
 # which cache alias to use
 CACHE_MIDDLEWARE_ALIAS = 'default'
 

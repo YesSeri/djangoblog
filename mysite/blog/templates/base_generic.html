@@ -22,7 +22,6 @@
             <a class="nav-item {% if request.path == '/contact' %} active{% endif %}"
                href="{% url 'contact' %}">Contact</a>
         </nav>
-        {% comment %} </span> {% endcomment %}
         {% block content %}{% endblock %}
         {% block pagination %}
             {% if is_paginated %}
