@@ -9,6 +9,7 @@
             {% endfor %}
             {{ post.content | markdown | safe | truncatewords:50  }}
             <a href="{{ post.get_absolute_url }}">Read more...</a>
+			<!-- <p style="margin-bottom:0;"><i>{{post.created_date|date}}</i></p> -->
         </div>
     {% empty %}
         <h2>No posts yet</h2>

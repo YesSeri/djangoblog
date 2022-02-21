@@ -7,17 +7,14 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>HTML 5 Boilerplate</title>
         <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
-        <link rel="stylesheet"
-              href="https://unpkg.com/simpledotcss@2.0.5/simple.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
         <link rel="stylesheet"
               type="text/css"
               href="{% static './css/style.css' %}">
     </head>
     <body>
-		<header class="title">
-			<h1>Hank Blog</h1>
-		</header>
-        <nav>
+		<h1>Hank Blog</h1>
+		<nav>
             <a class="nav-item {% if request.path == '/' or 'posts' in request.path %} active{% endif %}"
                href="{% url 'posts' %}">Posts</a>
             <a class="nav-item {% if request.path == '/topics' %} active{% endif %}"

@@ -1,15 +1,23 @@
 {% extends "base_generic.html" %}
 {% block content %}
     {% for topic in object_list %}
-        <a id="{{ topic.name|lower }}"></a>
-        <h2>{{ topic.name }}</h2>
-        {% for post in topic.post_set.all %}
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><span>{{ post.created_date|date }}</span>
-        {% endfor %}
+		<div>
+			<a id="{{ topic.name|lower }}"></a>
+			<h2>{{ topic.name }}</h2>
+			<div class="posts-topic-div">
+			{% for post in topic.post_set.all %}
+				<div>
+					<a href="{{ post.get_absolute_url }}">{{ post.title }}</a><div>{{ post.created_date|date }}</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
     {% empty %}
+	<div>
         <h2>No topics added yet</h2>
         <p>
             Come back later
         </p>
+	</div>
     {% endfor %}
 {% endblock %}

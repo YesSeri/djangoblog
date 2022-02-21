@@ -6,5 +6,6 @@
         <p>
             {{ post.content | markdown | safe }}
         </p>
+		<p><i>{{post.created_date}}</i></p>
     </div>
 {% endblock %}
