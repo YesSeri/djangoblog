@@ -3,7 +3,6 @@ from django.views import View
 from django.views import generic
 from blog.models import Post, Topic
 
-
 # Create your views here.
 
 
@@ -25,7 +24,7 @@ class TopicDetailView(generic.DetailView):
 
 
 def contact(request):
-    return render(request, 'blog/contact.html')
+    return render(request, "blog/contact.html")
 
 
 def about(request):
