@@ -8,19 +8,20 @@
         <title>HTML 5 Boilerplate</title>
         <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
         <link rel="stylesheet"
-              href="https://unpkg.com/simpledotcss@2.0.0/simple-v1.css">
+              href="https://unpkg.com/simpledotcss@2.0.5/simple.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     </head>
     <body>
-        <span style="width:100%;
-                     display: flex;
-                     justify-content: space-around;
-                     flex-wrap:wrap;">
-            <a href="{% url 'posts' %}">Posts</a>
-            |
-            <a href="{% url 'topics' %}">Topics</a>
-            |
-            <a href="{% url 'contact' %}">Contact</a>
-        </span>
+        {% comment %} <span style="width:100%; display: flex; justify-content: space-around; flex-wrap:wrap;"> {% endcomment %}
+        <nav>
+            <a class="nav-item {% if request.path == '/' %} active{% endif %}"
+               href="{% url 'posts' %}">Posts</a>
+            <a class="nav-item {% if request.path == '/topics' %} active{% endif %}"
+               href="{% url 'topics' %}">Topics</a>
+            <a class="nav-item {% if request.path == '/contact' %} active{% endif %}"
+               href="{% url 'contact' %}">Contact</a>
+        </nav>
+        {% comment %} </span> {% endcomment %}
         <h1>Hank Blog</h1>
         {% block content %}{% endblock %}
     </body>
