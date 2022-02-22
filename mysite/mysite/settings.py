@@ -31,7 +31,7 @@ STATICFILES_DIRS = (
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG') != 'False'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
