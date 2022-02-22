@@ -1,10 +1,10 @@
 .nav-item {
 	border: solid 1px var(--border);
+	color: var(--text);
 	border-radius: 5px;
 	padding: 7px 0 9px 0;
 	margin-right: 5px;
 	text-decoration: none;
-	color: var(--text);
 	line-height: 1;
 	width: 70px;
 	display: inline-block;
@@ -12,8 +12,12 @@
 }
 
 .nav-item.active, .nav-item:hover {
-	border: solid 1px var(--selection);
-	color: var(--links);
+	border: solid 1px var(--accent);
+	color: var(--text);
+}
+
+.nav-item:hover {
+	color: var(--accent);
 }
 
 .pagination {
@@ -26,7 +30,7 @@
 }
 
 .posts-topic-div {
-	--auto-grid-min-size: 16rem;
+	--auto-grid-min-size: 14rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
 	gap: 1em;

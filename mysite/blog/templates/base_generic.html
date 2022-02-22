@@ -7,14 +7,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>HTML 5 Boilerplate</title>
         <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+        {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"> {% endcomment %}
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
         <link rel="stylesheet"
               type="text/css"
               href="{% static './css/style.css' %}">
     </head>
     <body>
-		<h1>Hank Blog</h1>
-		<nav>
+        <header>
+            <h1>Hank Blog</h1>
+        </header>
+        <nav>
             <a class="nav-item {% if request.path == '/' or 'posts' in request.path %} active{% endif %}"
                href="{% url 'posts' %}">Posts</a>
             <a class="nav-item {% if request.path == '/topics' %} active{% endif %}"
@@ -22,17 +25,22 @@
             <a class="nav-item {% if request.path == '/contact' %} active{% endif %}"
                href="{% url 'contact' %}">Contact</a>
         </nav>
-        {% block content %}{% endblock %}
-        {% block pagination %}
-            {% if is_paginated %}
-                <div class="pagination">
-                    {% if page_obj.has_previous %}
-                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-                    <span class="page-current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-                    {% if page_obj.has_next %}<a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>{% endif %}
-                </div>
-            {% endif %}
-        {% endblock %}
+        <section>
+            {% block content %}{% endblock %}
+            {% block pagination %}
+                {% if is_paginated %}
+                    <div class="pagination">
+                        {% if page_obj.has_previous %}
+                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="page-current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                        {% if page_obj.has_next %}<a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>{% endif %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </section>
+        <footer>
+            Copyright is mine
+        </footer>
     </body>
 </html>

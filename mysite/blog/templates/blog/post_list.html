@@ -2,17 +2,17 @@
 {% load markdown_extras %}
 {% block content %}
     {% for post in object_list %}
-        <div>
-            <h2>{{ post.title }}</h2>
+        <article>
+            <h1>{{ post.title }}</h1>
             {% for topic in post.topic.all %}
                 <a href="{% url 'topics' %}#{{ topic.name|lower }}">{{ topic.name }}</a>{% if not forloop.last %}<span>,</span>{% endif %}
             {% endfor %}
             {{ post.content | markdown | safe | truncatewords:50  }}
             <a href="{{ post.get_absolute_url }}">Read more...</a>
 			<p style="margin-bottom:0;"><i>{{post.created_date|date}}</i></p>
-        </div>
+        </article>
     {% empty %}
-        <h2>No posts yet</h2>
+        <h1>No posts yet</h1>
         <p>
             Come back later
         </p>
