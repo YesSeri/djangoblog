@@ -67,5 +67,9 @@
 .logo {
 	font-size: 3em;
 	margin-top: 0;
+}
 
+.topic:not(:last-child)::after {
+	content: ",";
+	color: var(--text-main);
 }
